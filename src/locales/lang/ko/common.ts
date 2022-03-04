@@ -1,0 +1,17 @@
+export default {
+  okText: 'OK',
+  closeText: '닫기',
+  cancelText: '취소',
+  loadingText: 'Loading...',
+  saveText: '저장',
+  delText: '삭제',
+  resetText: '초기화',
+  searchText: '검색',
+  queryText: '검색',
+  inputText: '입력해 주세요.',
+  chooseText: '선택해 주세요.',
+  redo: '새로고침',
+  back: '뒤로',
+  light: 'Light',
+  dark: 'Dark',
+};

@@ -165,18 +165,18 @@ export default {
     page: 'Intro page',
   },
   system: {
-    moduleName: 'System management',
+    moduleName: '시스템 관리',
 
-    account: 'Account management',
-    account_detail: 'Account detail',
-    password: 'Change password',
+    account: '사용자관리',
+    account_detail: '사용자 상세정보',
+    password: '비밀번호 변경',
 
-    dept: 'Department management',
+    dept: '부서관리',
 
-    menu: 'Menu management',
-    role: 'Role management',
+    menu: '메뉴관리',
+    role: '역할관리',
   },
-  calendar: { moduleName: 'Calendar management' },
+  calendar: { moduleName: '일정 관리' },
   table: {
     table: 'Table',
 
