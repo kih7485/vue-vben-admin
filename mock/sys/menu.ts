@@ -235,6 +235,30 @@ const linkRoute = {
   ],
 };
 
+const calendarRoute = {
+  path: '/calendar',
+  name: 'calendar',
+  component: '/calendar/scheduler/index',
+  meta: {
+    icon: 'ion:calendar',
+    title: 'routes.demo.calendar.moduleName',
+  },
+  // children: [
+  //   {
+  //     path: 'calendar',
+  //     name: 'Calendar',
+  //     component: '/dashboard/analysis/index',
+  //     meta: {
+  //       hideMenu: true,
+  //       hideBreadcrumb: true,
+  //       title: 'routes.dashboard.analysis',
+  //       currentActiveMenu: '/dashboard',
+  //       icon: 'bx:bx-home',
+  //     },
+  //   }
+  // ],
+};
+
 export default [
   {
     url: '/basic-api/getMenuList',
@@ -254,7 +278,14 @@ export default [
       switch (id) {
         case '1':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[0].path;
-          menu = [dashboardRoute, authRoute, levelRoute, sysRoute, linkRoute];
+          menu = [
+            dashboardRoute,
+            // authRoute,
+            // levelRoute,
+            // linkRoute,
+            sysRoute,
+            calendarRoute,
+          ];
           break;
         case '2':
           dashboardRoute.redirect = dashboardRoute.path + '/' + dashboardRoute.children[1].path;

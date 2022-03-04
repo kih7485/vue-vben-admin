@@ -30,7 +30,9 @@
     "test:br": "npx http-server dist --cors --brotli -c-1",
     "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
     "prepare": "husky install",
-    "gen:icon": "esno ./build/generate/icon/index.ts"
+    "gen:icon": "esno ./build/generate/icon/index.ts",
+    "deploy": "aws s3 sync ./dist s3://testbucket-1113 --profile=test",
+    "invalidate": "aws cloudfront create-invalidation --profile=test --distribution-id E3DWOCNFTPU1SN --paths /*"
   },
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
