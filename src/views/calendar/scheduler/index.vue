@@ -1,10 +1,10 @@
 <template>
-  <div class="demo-app">
-    <div class="demo-app-sidebar">
+  <PageWrapper dense contentFullHeight fixedHeight contentClass="flex">
+    <div class="w-1/4 xl:w-1/5 bg-cool-gray-50">
       <SmallCalendar @select-date="onSelectSmallDate" />
       <Labels />
     </div>
-    <div class="demo-app-main">
+    <div class="w-3/4 xl:w-4/5">
       <FullCalendar class="demo-app-calendar" ref="fullCalendar" :options="calendarOptions">
         <template #eventContent="arg">
           <b>{{ arg.timeText }}11</b>
@@ -18,7 +18,7 @@
       v-model:visible="modalVisible"
       @add-events="addCalandarEvent"
     />
-  </div>
+  </PageWrapper>
 </template>
 
 <script lang="ts">
@@ -37,6 +37,8 @@
   import { INITIAL_EVENTS } from './event';
   import { useModal } from '/@/components/Modal';
   import RegisterModal from './RegisterModal.vue';
+
+  import { PageWrapper } from '/@/components/Page';
   import { SmallCalendar, Labels } from '/@/components/Calendar';
   import dayjs from 'dayjs';
 
@@ -46,6 +48,7 @@
       RegisterModal,
       SmallCalendar,
       Labels,
+      PageWrapper,
     },
     setup() {
       const [register1] = useModal();
