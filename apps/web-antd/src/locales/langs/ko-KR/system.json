@@ -1,0 +1,60 @@
+{
+  "title": "시스템 관리",
+  "role": {
+    "title": "역할 관리",
+    "roleName": "역할명",
+    "roleCode": "역할 코드",
+    "roleStatus": "상태",
+    "roleDesc": "설명",
+    "createRole": "역할 생성",
+    "editRole": "역할 수정",
+    "deleteRole": "역할 삭제",
+    "assignPermissions": "권한 할당",
+    "enable": "활성화",
+    "disable": "비활성화"
+  },
+  "menu": {
+    "title": "메뉴 관리",
+    "menuName": "메뉴명",
+    "menuPath": "경로",
+    "menuIcon": "아이콘",
+    "menuSort": "정렬",
+    "menuStatus": "상태",
+    "parentMenu": "상위 메뉴",
+    "menuType": "메뉴 타입",
+    "permission": "권한",
+    "createMenu": "메뉴 생성",
+    "editMenu": "메뉴 수정",
+    "deleteMenu": "메뉴 삭제",
+    "visible": "보이기",
+    "hidden": "숨기기"
+  },
+  "dept": {
+    "title": "부서 관리",
+    "deptName": "부서명",
+    "deptCode": "부서 코드",
+    "parentDept": "상위 부서",
+    "deptLeader": "부서장",
+    "deptStatus": "상태",
+    "createDept": "부서 생성",
+    "editDept": "부서 수정",
+    "deleteDept": "부서 삭제",
+    "deptSort": "정렬 순서"
+  },
+  "user": {
+    "title": "사용자 관리",
+    "userName": "사용자명",
+    "nickName": "닉네임",
+    "realName": "실명",
+    "email": "이메일",
+    "phone": "전화번호",
+    "department": "부서",
+    "role": "역할",
+    "status": "상태",
+    "createUser": "사용자 생성",
+    "editUser": "사용자 수정",
+    "deleteUser": "사용자 삭제",
+    "resetPassword": "비밀번호 초기화",
+    "assignRole": "역할 할당"
+  }
+}

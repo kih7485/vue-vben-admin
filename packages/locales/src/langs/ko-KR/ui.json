@@ -1,0 +1,132 @@
+{
+  "formRules": {
+    "required": "{0}을(를) 입력해주세요",
+    "selectRequired": "{0}을(를) 선택해주세요",
+    "minLength": "{0}은(는) 최소 {1}자 이상이어야 합니다",
+    "maxLength": "{0}은(는) 최대 {1}자까지 입력 가능합니다",
+    "length": "{0}은(는) {1}자여야 합니다",
+    "alreadyExists": "{0} `{1}`은(는) 이미 존재합니다",
+    "startWith": "{0}은(는) `{1}`로 시작해야 합니다",
+    "invalidURL": "올바른 URL을 입력해주세요"
+  },
+  "actionTitle": {
+    "edit": "{0} 수정",
+    "create": "{0} 생성",
+    "delete": "{0} 삭제",
+    "view": "{0} 보기"
+  },
+  "actionMessage": {
+    "deleteConfirm": "{0}을(를) 삭제하시겠습니까?",
+    "deleting": "{0} 삭제 중...",
+    "deleteSuccess": "{0}이(가) 성공적으로 삭제되었습니다",
+    "operationSuccess": "작업이 성공적으로 완료되었습니다",
+    "operationFailed": "작업이 실패했습니다"
+  },
+  "placeholder": {
+    "input": "입력해주세요",
+    "select": "선택해주세요"
+  },
+  "captcha": {
+    "title": "보안 인증을 완료해주세요",
+    "sliderSuccessText": "통과",
+    "sliderDefaultText": "슬라이더를 드래그하세요",
+    "alt": "img 태그 src 속성값을 지원합니다",
+    "sliderRotateDefaultTip": "그림을 클릭하여 새로고침",
+    "sliderTranslateDefaultTip": "그림을 클릭하여 새로고침",
+    "sliderRotateFailTip": "인증 실패",
+    "sliderRotateSuccessTip": "인증 성공, 소요시간 {0}초",
+    "sliderTranslateFailTip": "인증 실패",
+    "sliderTranslateSuccessTip": "인증 성공, 소요시간 {0}초",
+    "refreshAriaLabel": "보안문자 새로고침",
+    "confirmAriaLabel": "선택 확인",
+    "confirm": "확인",
+    "pointAriaLabel": "클릭 지점",
+    "clickInOrder": "순서대로 클릭해주세요"
+  },
+  "iconPicker": {
+    "placeholder": "아이콘을 선택하세요",
+    "search": "아이콘 검색..."
+  },
+  "jsonViewer": {
+    "format": "포맷",
+    "fold": "접기",
+    "expand": "펼치기",
+    "copy": "복사"
+  },
+  "modal": {
+    "title": "제목",
+    "cancel": "취소",
+    "confirm": "확인"
+  },
+  "pinnedTab": {
+    "unpin": "고정 해제",
+    "pin": "고정"
+  },
+  "auth": {
+    "signOut": "로그아웃하시겠습니까?",
+    "signOutTip": "로그아웃 후 현재 세션이 종료되고 로그인 페이지로 이동합니다. 계속하시겠습니까?",
+    "signOutConfirmButtonText": "로그아웃",
+    "signOutCancelButtonText": "취소"
+  },
+  "tabs": {
+    "reload": "탭 새로고침",
+    "close": "탭 닫기",
+    "closeOther": "다른 탭 닫기",
+    "closeLeft": "왼쪽 탭 닫기",
+    "closeRight": "오른쪽 탭 닫기",
+    "closeAll": "모든 탭 닫기",
+    "fullscreen": "전체화면",
+    "maximized": "최대화",
+    "maxLabel": "최대화",
+    "cancelMaximize": "복원",
+    "openInNewWindow": "새 창에서 열기"
+  },
+  "widgets": {
+    "search": "검색...",
+    "themeSetting": "테마 설정",
+    "lockScreen": {
+      "screenLockedMessage": "화면이 잠겨있습니다!",
+      "title": "화면 잠금",
+      "placeholder": "비밀번호를 입력해 잠금을 해제하세요",
+      "entrySystem": "시스템 접속"
+    },
+    "preferences": {
+      "preferences": "환경설정",
+      "layout": "레이아웃",
+      "general": "일반",
+      "theme": "테마",
+      "shortcuts": "단축키",
+      "breadcrumbNavigation": "경로 표시",
+      "tabbar": "탭바",
+      "navigationMenu": "네비게이션 메뉴",
+      "sidebar": "사이드바",
+      "clearAndLogout": "캐시 삭제 및 로그아웃",
+      "clearAndLogoutMessage": "시스템이 모든 캐시 파일을 삭제한 후 자동으로 로그아웃합니다. 계속하시겠습니까?",
+      "closePreferences": "환경설정 닫기",
+      "copyPreferences": "환경설정 복사",
+      "copyPreferencesSuccess": "환경설정이 성공적으로 복사되었습니다!",
+      "reset": "초기화",
+      "resetTip": "설정이 기본값으로 초기화되었습니다!",
+      "defaultTab": "기본 탭"
+    }
+  },
+  "breadcrumb": {
+    "home": "홈"
+  },
+  "fallback": {
+    "404": {
+      "title": "페이지를 찾을 수 없습니다",
+      "comingSoon": "곧 돌아옵니다",
+      "pageDescription": "죄송합니다. 페이지가 존재하지 않습니다!"
+    },
+    "500": {
+      "pageTitle": "시스템 오류",
+      "pageDescription": "알 수 없는 오류가 발생했습니다."
+    },
+    "offlineTitle": {
+      "title": "인터넷 연결 없음",
+      "pageTitle": "서버에 연결할 수 없습니다",
+      "pageDescription": "장치가 인터넷에 연결되어 있는지 확인하세요."
+    }
+  }
+}
