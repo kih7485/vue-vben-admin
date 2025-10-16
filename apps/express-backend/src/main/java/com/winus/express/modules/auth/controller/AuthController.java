@@ -109,4 +109,14 @@ public class AuthController {
 
         return ResponseEntity.badRequest().build();
     }
+
+    @GetMapping("/codes")
+    public ResponseEntity<List<String>> getAccessCodes(Authentication authentication) {
+        if (authentication != null && authentication.getPrincipal() instanceof CustomUserPrincipal userPrincipal) {
+            List<String> permissions = userService.getUserPermissions(userPrincipal.getUserId());
+            return ResponseEntity.ok(permissions);
+        }
+
+        return ResponseEntity.ok(List.of());
+    }
 }

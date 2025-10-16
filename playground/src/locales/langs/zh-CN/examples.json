@@ -31,14 +31,15 @@
   "vxeTable": {
     "title": "Vxe 表格",
     "basic": "基础表格",
-    "remote": "远程加载",
-    "tree": "树形表格",
-    "fixed": "固定表头/列",
-    "virtual": "虚拟滚动",
+    "cellArea": "单元格区域 (Excel风格)",
+    "custom-cell": "自定义单元格",
     "editCell": "单元格编辑",
     "editRow": "行编辑",
-    "custom-cell": "自定义单元格",
-    "form": "搜索表单"
+    "fixed": "固定表头/列",
+    "form": "搜索表单",
+    "remote": "远程加载",
+    "tree": "树形表格",
+    "virtual": "虚拟滚动"
   },
   "captcha": {
     "title": "验证码",

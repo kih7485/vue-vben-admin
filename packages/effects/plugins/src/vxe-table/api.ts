@@ -2,6 +2,7 @@ import type { VxeGridInstance } from 'vxe-table';
 
 import type { ExtendedFormApi } from '@vben-core/form-ui';
 
+import type { CellAreaManager } from './extensions/cell-area';
 import type { VxeGridProps } from './types';
 
 import { toRaw } from 'vue';
@@ -27,6 +28,7 @@ function getDefaultState(): VxeGridProps {
 }
 
 export class VxeGridApi<T extends Record<string, any> = any> {
+  public cellAreaManager?: CellAreaManager;
   public formApi = {} as ExtendedFormApi;
 
   // private prevState: null | VxeGridProps = null;
@@ -56,6 +58,30 @@ export class VxeGridApi<T extends Record<string, any> = any> {
     this.state = this.store.state;
     this.stateHandler = new StateHandler();
     bindMethods(this);
+  }
+
+  /**
+   * Disable cell area features
+   */
+  disableCellArea() {
+    if (this.cellAreaManager) {
+      this.cellAreaManager.destroy();
+      this.cellAreaManager = undefined;
+    }
+  }
+
+  /**
+   * Enable cell area features (selection, copy/paste, fill)
+   */
+  async enableCellArea(
+    options?: import('./extensions/cell-area').CellAreaOptions,
+  ) {
+    if (!this.cellAreaManager && this.grid) {
+      const { CellAreaManager } = await import('./extensions/cell-area');
+      this.cellAreaManager = new CellAreaManager(this.grid, options);
+      this.cellAreaManager?.init();
+    }
+    return this.cellAreaManager;
   }
 
   mount(instance: null | VxeGridInstance, formApi: ExtendedFormApi) {
@@ -124,5 +150,6 @@ export class VxeGridApi<T extends Record<string, any> = any> {
   unmount() {
     this.isMounted = false;
     this.stateHandler.reset();
+    this.cellAreaManager?.destroy();
   }
 }

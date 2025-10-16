@@ -177,6 +177,14 @@ const routes: RouteRecordRaw[] = [
               title: $t('examples.vxeTable.virtual'),
             },
           },
+          {
+            name: 'VxeTableCellAreaExample',
+            path: '/examples/vxe-table/cell-area',
+            component: () => import('#/views/examples/vxe-table/cell-area.vue'),
+            meta: {
+              title: $t('examples.vxeTable.cellArea'),
+            },
+          },
         ],
       },
       {

@@ -28,14 +28,15 @@
   "vxeTable": {
     "title": "Vxe Table",
     "basic": "Basic Table",
-    "remote": "Remote Load",
-    "tree": "Tree Table",
-    "fixed": "Fixed Header/Column",
-    "virtual": "Virtual Scroll",
+    "cellArea": "Cell Area (Excel-like)",
+    "custom-cell": "Custom Cell",
     "editCell": "Edit Cell",
     "editRow": "Edit Row",
-    "custom-cell": "Custom Cell",
-    "form": "Form Table"
+    "fixed": "Fixed Header/Column",
+    "form": "Form Table",
+    "remote": "Remote Load",
+    "tree": "Tree Table",
+    "virtual": "Virtual Scroll"
   },
   "captcha": {
     "title": "Captcha",

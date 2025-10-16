@@ -1,0 +1,60 @@
+-- 테스트용 사용자 데이터
+-- 비밀번호는 BCrypt로 암호화된 'admin123' 입니다
+
+-- 역할(Role) 데이터
+INSERT INTO TB_ROLE (ROLE_ID, ROLE_CODE, ROLE_NAME, STATUS, SORT_NO, DESCRIPTION, CREATE_BY, CREATE_TIME)
+VALUES ('1', 'ADMIN', '시스템 관리자', '1', 1, '전체 시스템 관리 권한', 'system', SYSDATE);
+
+INSERT INTO TB_ROLE (ROLE_ID, ROLE_CODE, ROLE_NAME, STATUS, SORT_NO, DESCRIPTION, CREATE_BY, CREATE_TIME)
+VALUES ('2', 'USER', '일반 사용자', '1', 2, '일반 사용자 권한', 'system', SYSDATE);
+
+-- 부서(Department) 데이터
+INSERT INTO TB_DEPARTMENT (DEPT_ID, DEPT_CODE, DEPT_NAME, PARENT_ID, SORT_NO, STATUS, CREATE_BY, CREATE_TIME)
+VALUES ('1', 'DEV', '개발팀', '0', 1, '1', 'system', SYSDATE);
+
+INSERT INTO TB_DEPARTMENT (DEPT_ID, DEPT_CODE, DEPT_NAME, PARENT_ID, SORT_NO, STATUS, CREATE_BY, CREATE_TIME)
+VALUES ('2', 'HR', '인사팀', '0', 2, '1', 'system', SYSDATE);
+
+-- 사용자(User) 데이터
+-- admin / 123456
+INSERT INTO TB_USER (USER_ID, USER_NAME, PASSWORD, REAL_NAME, EMAIL, PHONE, DEPT_CODE, STATUS, SORT_NO, CREATE_BY, CREATE_TIME)
+VALUES ('1', 'admin', '$2a$12$5ViwLqQ3RwzHqNZnPdcGOuTjt/YdZNzgLUzMNzbHe0Qf7r51yJvf.', '관리자', 'admin@winus.com', '010-1234-5678', 'DEV', '1', 1, 'system', SYSDATE);
+
+-- vben / 123456
+INSERT INTO TB_USER (USER_ID, USER_NAME, PASSWORD, REAL_NAME, EMAIL, PHONE, DEPT_CODE, STATUS, SORT_NO, CREATE_BY, CREATE_TIME)
+VALUES ('2', 'vben', '$2a$12$5ViwLqQ3RwzHqNZnPdcGOuTjt/YdZNzgLUzMNzbHe0Qf7r51yJvf.', 'Vue Vben', 'vben@winus.com', '010-2345-6789', 'DEV', '1', 2, 'system', SYSDATE);
+
+-- 사용자-역할 매핑
+INSERT INTO TB_USER_ROLE (USER_ID, ROLE_ID, CREATE_TIME)
+VALUES ('1', '1', SYSDATE);
+
+INSERT INTO TB_USER_ROLE (USER_ID, ROLE_ID, CREATE_TIME)
+VALUES ('2', '2', SYSDATE);
+
+-- 메뉴(Menu) 데이터
+INSERT INTO TB_MENU (MENU_ID, MENU_NAME, PARENT_ID, PATH, COMPONENT, PERMS, ICON, TYPE, SORT_NO, STATUS, CREATE_BY, CREATE_TIME)
+VALUES ('1', '시스템 관리', '0', '/system', NULL, NULL, 'setting', 'M', 1, '1', 'system', SYSDATE);
+
+INSERT INTO TB_MENU (MENU_ID, MENU_NAME, PARENT_ID, PATH, COMPONENT, PERMS, ICON, TYPE, SORT_NO, STATUS, CREATE_BY, CREATE_TIME)
+VALUES ('2', '사용자 관리', '1', '/system/user', 'system/user/index', 'system:user:list', 'user', 'C', 1, '1', 'system', SYSDATE);
+
+INSERT INTO TB_MENU (MENU_ID, MENU_NAME, PARENT_ID, PATH, COMPONENT, PERMS, ICON, TYPE, SORT_NO, STATUS, CREATE_BY, CREATE_TIME)
+VALUES ('3', '역할 관리', '1', '/system/role', 'system/role/index', 'system:role:list', 'team', 'C', 2, '1', 'system', SYSDATE);
+
+INSERT INTO TB_MENU (MENU_ID, MENU_NAME, PARENT_ID, PATH, COMPONENT, PERMS, ICON, TYPE, SORT_NO, STATUS, CREATE_BY, CREATE_TIME)
+VALUES ('4', '메뉴 관리', '1', '/system/menu', 'system/menu/index', 'system:menu:list', 'menu', 'C', 3, '1', 'system', SYSDATE);
+
+-- 역할-메뉴 매핑 (관리자는 모든 메뉴 접근 가능)
+INSERT INTO TB_ROLE_MENU (ROLE_ID, MENU_ID, CREATE_TIME)
+VALUES ('1', '1', SYSDATE);
+
+INSERT INTO TB_ROLE_MENU (ROLE_ID, MENU_ID, CREATE_TIME)
+VALUES ('1', '2', SYSDATE);
+
+INSERT INTO TB_ROLE_MENU (ROLE_ID, MENU_ID, CREATE_TIME)
+VALUES ('1', '3', SYSDATE);
+
+INSERT INTO TB_ROLE_MENU (ROLE_ID, MENU_ID, CREATE_TIME)
+VALUES ('1', '4', SYSDATE);
+
+COMMIT;

@@ -1,0 +1,79 @@
+/* Cell Area Selection Styles */
+
+.vxe-cell-area-overlay {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.vxe-fill-handle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: #1890ff;
+  border: 1px solid white;
+  cursor: crosshair;
+  z-index: 101;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.vxe-fill-handle:hover {
+  width: 8px;
+  height: 8px;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.vxe-fill-handle:active {
+  cursor: crosshair;
+  background-color: #096dd9;
+}
+
+/* 드래그 필 시 가이드 표시 */
+.vxe-fill-guide {
+  position: absolute;
+  border: 1px dashed #1890ff;
+  background-color: rgba(24, 144, 255, 0.05);
+  pointer-events: none;
+  z-index: 99;
+}
+
+/* 셀 선택 시 애니메이션 */
+.vxe-cell-area-overlay {
+  animation: cell-area-fade-in 0.1s ease-in;
+}
+
+@keyframes cell-area-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 복사 시 애니메이션 */
+@keyframes vxe-cell-area-copy-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .vxe-fill-handle {
+    width: 10px;
+    height: 10px;
+  }
+
+  .vxe-fill-handle:hover {
+    width: 12px;
+    height: 12px;
+  }
+}
