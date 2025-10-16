@@ -66,15 +66,16 @@ const gridRef = useTemplateRef<VxeGridInstance>('gridRef');
 const state = props.api?.useStore?.();
 
 const {
-  gridOptions,
+  cellArea,
   class: className,
+  formOptions,
   gridClass,
   gridEvents,
-  formOptions,
+  gridOptions,
+  separator,
+  showSearchForm,
   tableTitle,
   tableTitleHelp,
-  showSearchForm,
-  separator,
 } = usePriorityValues(props, state);
 
 const { isMobile } = usePreferences();
@@ -347,9 +348,16 @@ const isCompactForm = computed(() => {
   return formApi.getState()?.compact;
 });
 
-onMounted(() => {
+onMounted(async () => {
   props.api?.mount?.(gridRef.value, formApi);
   init();
+
+  // Auto-enable cellArea if configured
+  if (cellArea.value) {
+    await nextTick();
+    const options = isBoolean(cellArea.value) ? {} : cellArea.value;
+    await props.api?.enableCellArea?.(options);
+  }
 });
 
 onUnmounted(() => {

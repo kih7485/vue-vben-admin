@@ -115,6 +115,28 @@ export class CellAreaManager implements ICellAreaManager {
     return this.selection;
   }
 
+  init(): void {
+    console.warn('[CellAreaManager] Initializing...', {
+      grid: this.grid,
+      gridElement: this.grid.$el,
+    });
+
+    if (this.options.enableSelection) {
+      this.setupMouseSelection();
+    }
+
+    if (this.options.enableKeyboard) {
+      this.setupKeyboardNavigation();
+    }
+
+    if (this.options.enableClipboard) {
+      this.setupClipboard();
+    }
+
+    this.createOverlay();
+    console.warn('[CellAreaManager] Initialization complete');
+  }
+
   moveSelection(direction: Direction, extend: boolean): void {
     if (!this.selection) return;
 
@@ -149,28 +171,6 @@ export class CellAreaManager implements ICellAreaManager {
     } else {
       this.selectCell(newRow, newCol);
     }
-  }
-
-  init(): void {
-    console.warn('[CellAreaManager] Initializing...', {
-      grid: this.grid,
-      gridElement: this.grid.$el,
-    });
-
-    if (this.options.enableSelection) {
-      this.setupMouseSelection();
-    }
-
-    if (this.options.enableKeyboard) {
-      this.setupKeyboardNavigation();
-    }
-
-    if (this.options.enableClipboard) {
-      this.setupClipboard();
-    }
-
-    this.createOverlay();
-    console.warn('[CellAreaManager] Initialization complete');
   }
 
   async pasteFromClipboard(): Promise<void> {
@@ -516,29 +516,6 @@ export class CellAreaManager implements ICellAreaManager {
     this.boundHandlers.set('keydown', handleKeydown as EventListener);
   }
 
-  private showCopyAnimation(): void {
-    if (!this.overlayElement) return;
-
-    // Clear any existing animation timeout
-    if (this.copyAnimationTimeout) {
-      clearTimeout(this.copyAnimationTimeout);
-    }
-
-    // Add dashed border with animation
-    this.overlayElement.style.borderStyle = 'dashed';
-    this.overlayElement.style.animation =
-      'vxe-cell-area-copy-pulse 0.6s ease-in-out';
-
-    // Reset after animation
-    this.copyAnimationTimeout = window.setTimeout(() => {
-      if (this.overlayElement) {
-        this.overlayElement.style.borderStyle = 'solid';
-        this.overlayElement.style.animation = '';
-      }
-      this.copyAnimationTimeout = null;
-    }, 2000);
-  }
-
   private setupMouseSelection(): void {
     const gridElement = this.grid.$el as HTMLElement;
     if (!gridElement) {
@@ -629,6 +606,29 @@ export class CellAreaManager implements ICellAreaManager {
     this.boundHandlers.set('mousedown', handleMouseDown as EventListener);
     this.boundHandlers.set('mousemove', handleMouseMove as EventListener);
     this.boundHandlers.set('mouseup', handleMouseUp as EventListener);
+  }
+
+  private showCopyAnimation(): void {
+    if (!this.overlayElement) return;
+
+    // Clear any existing animation timeout
+    if (this.copyAnimationTimeout) {
+      clearTimeout(this.copyAnimationTimeout);
+    }
+
+    // Add dashed border with animation
+    this.overlayElement.style.borderStyle = 'dashed';
+    this.overlayElement.style.animation =
+      'vxe-cell-area-copy-pulse 0.6s ease-in-out';
+
+    // Reset after animation
+    this.copyAnimationTimeout = window.setTimeout(() => {
+      if (this.overlayElement) {
+        this.overlayElement.style.borderStyle = 'solid';
+        this.overlayElement.style.animation = '';
+      }
+      this.copyAnimationTimeout = null;
+    }, 2000);
   }
 
   private unbindAllEvents(): void {

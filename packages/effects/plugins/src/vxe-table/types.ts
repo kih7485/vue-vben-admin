@@ -12,6 +12,7 @@ import type { ClassType, DeepPartial } from '@vben/types';
 import type { BaseFormComponentType, VbenFormProps } from '@vben-core/form-ui';
 
 import type { VxeGridApi } from './api';
+import type { CellAreaOptions } from './extensions/cell-area';
 
 import { useVbenForm } from '@vben-core/form-ui';
 
@@ -41,6 +42,38 @@ export interface VxeGridProps<
   D extends BaseFormComponentType = BaseFormComponentType,
 > {
   /**
+   * Cell Area 配置 (Excel-like cell selection, copy/paste)
+   */
+  cellArea?: boolean | CellAreaOptions;
+  /**
+   * 组件class
+   */
+  class?: ClassType;
+  /**
+   * 表单配置
+   */
+  formOptions?: VbenFormProps<D>;
+  /**
+   * vxe-grid class
+   */
+  gridClass?: ClassType;
+  /**
+   * vxe-grid 事件
+   */
+  gridEvents?: DeepPartial<VxeGridListeners<T>>;
+  /**
+   * vxe-grid 配置
+   */
+  gridOptions?: DeepPartial<VxeTableGridOptions<T>>;
+  /**
+   * 搜索表单与表格主体之间的分隔条
+   */
+  separator?: boolean | SeparatorOptions;
+  /**
+   * 显示搜索表单
+   */
+  showSearchForm?: boolean;
+  /**
    * 标题
    */
   tableTitle?: string;
@@ -48,34 +81,6 @@ export interface VxeGridProps<
    * 标题帮助
    */
   tableTitleHelp?: string;
-  /**
-   * 组件class
-   */
-  class?: ClassType;
-  /**
-   * vxe-grid class
-   */
-  gridClass?: ClassType;
-  /**
-   * vxe-grid 配置
-   */
-  gridOptions?: DeepPartial<VxeTableGridOptions<T>>;
-  /**
-   * vxe-grid 事件
-   */
-  gridEvents?: DeepPartial<VxeGridListeners<T>>;
-  /**
-   * 表单配置
-   */
-  formOptions?: VbenFormProps<D>;
-  /**
-   * 显示搜索表单
-   */
-  showSearchForm?: boolean;
-  /**
-   * 搜索表单与表格主体之间的分隔条
-   */
-  separator?: boolean | SeparatorOptions;
 }
 
 export type ExtendedVxeGridApi<
